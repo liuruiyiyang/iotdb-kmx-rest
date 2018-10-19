@@ -43,7 +43,7 @@ public class MyResourceTest {
     @Test
     public void testGetIt() {
         String url = "query?db=tsdb&pretty=true&q=SELECT+*+FROM+%22mymeas%22+";
-        String responseMsg = target.path("").path(url).request().get(String.class);
+        String responseMsg = target.path("query").path(url).request().get(String.class);
         assertEquals("Got it!", responseMsg);
     }
 }

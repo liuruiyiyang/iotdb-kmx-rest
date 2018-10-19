@@ -14,7 +14,7 @@ import java.net.URLDecoder;
 /**
  * Root resource (exposed at "myresource" path)
  */
-@Path("")
+@Path("query")
 public class MyResource {
     private static final Logger LOGGER = LoggerFactory.getLogger(MyResource.class);
 
