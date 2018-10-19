@@ -28,8 +28,9 @@ public class MyResourceTest {
         // dependency on jersey-media-json module in pom.xml and Main.startServer())
         // --
         // c.configuration().enable(new org.glassfish.jersey.media.json.JsonJaxbFeature());
+        target = c.target("http://192.168.130.165:6666/");
 
-        target = c.target(Main.BASE_URI);
+        //target = c.target(Main.BASE_URI);
     }
 
     @After
@@ -43,9 +44,15 @@ public class MyResourceTest {
     @Test
     public void testGetIt() {
         String url = "?db=tsdb&pretty=true&q=SELECT+*+FROM+%22mymeas%22+";
-        String s = target.path("query").queryParam("db","tsdb").queryParam("q", "sfw").getUriBuilder().toString();
+        String s = target.path("query")
+                .queryParam("db","tsdb")
+                .queryParam("q", "sfw")
+                .getUriBuilder().toString();
         System.out.println("s="+s);
-        String responseMsg = target.path("query").queryParam("db","tsdb").queryParam("q","SELECT+*+FROM+%22mymeas%22+").request().get(String.class);
+        String responseMsg = target.path("query")
+                .queryParam("db","tsdb")
+                .queryParam("q","SELECT+s_0+FROM+root.performf.group_0.d_0")
+                .request().get(String.class);
         assertEquals("Got it!", responseMsg);
     }
 }
