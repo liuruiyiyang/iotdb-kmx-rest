@@ -91,7 +91,7 @@
                         <configuration>
                             <archive>
                                 <manifest>
-                                    <mainClass>tsinghua.iotdb.rest.service.Server</mainClass>
+                                    <mainClass>cn.edu.tsinghua.iotdb.kmxrest.Main</mainClass>
                                 </manifest>
                             </archive>
                             <descriptorRefs>
