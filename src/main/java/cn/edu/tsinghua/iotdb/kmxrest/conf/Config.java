@@ -11,7 +11,7 @@ public class Config {
     }
 
     public String host = "localhost";
-    public String port = "6666";
+    public String port = "6667";
 
 
     public static void main(String[] args) {

@@ -42,8 +42,10 @@ public class MyResourceTest {
      */
     @Test
     public void testGetIt() {
-        String url = "query?db=tsdb&pretty=true&q=SELECT+*+FROM+%22mymeas%22+";
-        String responseMsg = target.path("query").path(url).request().get(String.class);
+        String url = "?db=tsdb&pretty=true&q=SELECT+*+FROM+%22mymeas%22+";
+        String s = target.path("query").queryParam("db","tsdb").queryParam("q", "sfw").getUriBuilder().toString();
+        System.out.println("s="+s);
+        String responseMsg = target.path("query").queryParam("db","tsdb").queryParam("q","SELECT+*+FROM+%22mymeas%22+").request().get(String.class);
         assertEquals("Got it!", responseMsg);
     }
 }
